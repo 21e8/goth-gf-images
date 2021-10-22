@@ -1,0 +1,14 @@
+{
+  "name": "gothgf",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "canvas": "^2.8.0",
+    "image-data-uri": "^2.0.1",
+    "json-format": "^1.0.1",
+    "merge-images-v2": "^2.0.1",
+    "rxjs": "^7.4.0",
+    "typescript": "^4.4.4"
+  }
+}
