@@ -36,7 +36,7 @@ module.exports.traits = {
     "Cat eye black": 0.1
   },
   "Hair": {
-    "Witch's hat": 0.01,
+    "Witch hat": 0.01,
     "Pink beanie": 0.2,
     "Pink cat cap": 0.2,
     "Pink baseball cap": 0.2,
@@ -226,7 +226,6 @@ module.exports.traits = {
     "X Necklace": 0.1,
     "Bloody Vampire teeth necklace": 0.1,
     "Tooth necklace": 0.1,
-    "Thin double band": 0.1,
     "Thin band": 0.1,
     "String bow": 0.1,
     "Solana chain": 0.1,
@@ -299,6 +298,28 @@ module.exports.traits = {
     "Amethyst crystal necklace": 0.1,
     "Amber crystal necklace": 0.1,
     "13 necklace": 0.1
+  },
+  "Chest Tattoo": {
+    "Web Diamond": 0.05,
+    "Umbrella Rose": 0.05,
+    "Tiger": 0.05,
+    "Stars": 0.05,
+    "Spiderweb": 0.05,
+    "Spider": 0.05,
+    "Ouija": 0.05,
+    "Medusa": 0.05,
+    "Illuminati": 0.05,
+    "Hourglass": 0.05,
+    "Flowers": 0.05,
+    "Eye": 0.05,
+    "Eagle": 0.05,
+    "Dragon": 0.05,
+    "Devil": 0.05,
+    "Demon": 0.05,
+    "Coffin skull": 0.05,
+    "Hand": 0.05,
+    "Butterfly": 0.05,
+    "Anchor": 0.05,
   },
   "Chest Accessory": {
     "Cleavage": 0.1,
@@ -553,7 +574,7 @@ module.exports.traits = {
     "Gold pentagram": 0.001,
     "Forehead cross paint": 0.05,
     "Cross forehead": 0.05,
-    "Barb wire forehead": 0.01
+    "Barb wire": 0.01
   },
   "Scalp Tattoo": {
     "Spider web": 0.05,
@@ -588,7 +609,6 @@ module.exports.traits = {
     "Bat": 0.05,
     "Anchor": 0.05,
     "Web Diamond": 0.05,
-    "Umbrella Rose": 0.05,
     "Tiger": 0.05,
     "Stars": 0.05,
     "Spiderweb": 0.05,

@@ -31,7 +31,7 @@ const mappedtraits = Object.entries(traits).reduce(
   {}
 );
 
-const SET_SIZE = 6969;
+const SET_SIZE = 1_000_000;
 
 /**
  * Metadata template
