@@ -100,71 +100,7 @@ const BLACKLIST = {
 const errors = new Set();
 
 const gen = async (i) => {
-  // console.log(i);
   const b = makeJson({ i, traits: getTraits() });
-
-  // traits = traits.filter((t) => t.value !== "NONE");
-  // if (traits.find((t) => t.value.includes("PEANUT"))) {
-  //   traits = filterPeanutStuff(traits);
-  // }
-  // if (traits.find((t) => t.value.includes("RIPPED"))) {
-  //   traits = filterRippedStuff(traits);
-  // }
-  // if (traits.find((t) => t.trait_type.includes("SUIT"))) {
-  //   traits = filterSuitStuff(traits);
-  // }
-  // if (traits.find((t) => t.trait_type.includes("ROBE"))) {
-  //   traits = filterRobeSuff(traits);
-  // }
-  // if (traits.find((t) => t.value.includes("SWEATSHIRT"))) {
-  //   traits = filterSweatshirtStuff(traits);
-  // }
-  // if (traits.find((t) => t.value.includes("EYE PATCH"))) {
-  //   traits = filterEyePatchStuff(traits);
-  // }
-  // if (traits.find((t) => t.trait_type.includes("EYES"))) {
-  //   traits = filterEyesStuff(traits);
-  // }
-  // if (traits.find((t) => t.trait_type.includes("EYEWEAR"))) {
-  //   traits = filterEyewearStuff(traits);
-  // }
-  // if (traits.find((t) => t.value.includes("COOL COLLAR"))) {
-  //   traits = filterCollarStuff(traits);
-  // }
-  // if (traits.find((t) => t.trait_type.includes("BOTH HANDS"))) {
-  //   traits = filterHandStuff(traits);
-  // }
-  // if (traits.find((t) => t.trait_type.includes("HEADGEAR"))) {
-  //   traits = filterHeadgearStuff(traits);
-  // }
-  // if (traits.find((t) => t.trait_type.includes("FACE"))) {
-  //   traits = filterFaceStuff(traits);
-  // }
-  // if (traits.find((t) => t.value.includes("ZOMBIE"))) {
-  //   traits = filterZombieStuff(traits);
-  // }
-
-  // if (traits.find((t) => t.value.includes("COINS"))) {
-  //   if (
-  //     traits.find((t) => {
-  //       return t.trait_type === "NAKED" && t.value !== "GREEN";
-  //     })
-  //   ) {
-  //     traits = traits.filter((t) => t.value !== "COINS");
-  //   }
-  // }
-
-  // fixHeadgearLevel(traits);
-
-  // traits = traits.filter((t) => !!Object.keys(t).length);
-
-  // fixOverall(traits);
-
-  // traits = traits.filter((t) => !!Object.keys(t).length);
-
-  // fixClownNose(traits);
-
-  // b.attributes = traits.filter((t) => !!Object.keys(t).length);
 
   const capitalizeWords = w => w
     .split(" ")
@@ -177,8 +113,6 @@ const gen = async (i) => {
         return undefined;
       }
 
-      // split(' ').map(w => capitalize(w)).join(' ')
-
       return `${__dirname}/data/${t.trait_type}/${capitalizeWords(
         b.attributes.find(
           (c) =>
@@ -186,7 +120,8 @@ const gen = async (i) => {
         ).value)
         }.png`;
     })
-    .filter((t) => !!t);
+    .filter((t) => !!t)
+    .reverse();
 
   images.forEach(img => {
     try {
@@ -197,23 +132,20 @@ const gen = async (i) => {
   })
 
 
-  // return await mergeImages(images, {
-  //   Canvas: Canvas,
-  // })
-  //   .catch((e) => {
-  //     console.log(e, images);
-  //     errors.push({
-  //       error: e,
-  //       images,
-  //     });
-  //   })
-  //   .then((b64) => ImageDataURI.outputFile(b64, `out/${i}.png`))
-  //   .then(() => {
-  //     return require("fs/promises").writeFile(
-  //       `out/${i}.json`,
-  //       jsonFormat(b, { size: 2, type: "space" })
-  //     );
-  //   });
+  return await mergeImages(images, {
+    Canvas: Canvas,
+  })
+    .catch((e) => {
+      console.log(e, images);
+      fs.writeFileSync('errors.json', JSON.stringify(Array.from(errors)))
+    })
+    .then((b64) => ImageDataURI.outputFile(b64, `out/${i}.png`))
+    .then(() => {
+      return require("fs/promises").writeFile(
+        `out/${i}.json`,
+        jsonFormat(b, { size: 2, type: "space" })
+      );
+    });
 };
 
 from(
@@ -223,7 +155,5 @@ from(
 )
   .pipe(mergeMap((i) => gen(i), 1))
   .subscribe(() => {
-    // require("fs").writeFileSync("errors.json", JSON.stringify(errors));
     fs.writeFileSync('errors.json', JSON.stringify(Array.from(errors)))
-
   });

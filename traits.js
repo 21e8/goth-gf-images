@@ -35,6 +35,19 @@ module.exports.traits = {
     "Cat eye sunglasses": 0.1,
     "Cat eye black": 0.1
   },
+  "Mouth Accessory": {
+    "X mask": 0.05,
+    "white mask": 0.05,
+    "Pink vape": 0.05,
+    "Pink mask": 0.05,
+    "Pentagram mask": 0.05,
+    "Lilac vape": 0.05,
+    "Cross mask": 0.05,
+    "Black vape": 0.05,
+    "Black mask": 0.05,
+    "Tongue out": 0.05,
+    "Demon teeth": 0.01
+  },
   "Hair": {
     "Witch hat": 0.01,
     "Pink beanie": 0.2,
@@ -171,54 +184,34 @@ module.exports.traits = {
     "Billie": 0.01,
     "Zero Two": 0.001
   },
-  "Clothes": {
-    "Yellow tshirt": 0.1,
-    "White vest": 0.1,
-    "White tshirt": 0.1,
-    "White stripes": 0.1,
-    "White polo": 0.1,
-    "Track jacket": 0.1,
-    "Shirt collar": 0.1,
-    "Sailor shirt": 0.1,
-    "Red stripes": 0.1,
-    "Red bustier": 0.1,
-    "Red + black segments": 0.1,
-    "Purple stripes": 0.1,
-    "Purple + Cream Segments": 0.1,
-    "Pink vest": 0.1,
-    "Pink tshirt": 0.1,
-    "Pink sprinkles": 0.1,
-    "Pink segments": 0.1,
-    "Pink polo": 0.1,
-    "Pink hoodie": 0.1,
-    "Pink heart cutout": 0.1,
-    "Pink braces": 0.1,
-    "Pilgrim dress": 0.1,
-    "Overalls": 0.1,
-    "Lilac vest": 0.1,
-    "Leopard spots": 0.1,
-    "Houndstooth": 0.1,
-    "Hoodie": 0.1,
-    "Heart shirt": 0.1,
-    "Grey tshirt": 0.1,
-    "Grey polo": 0.1,
-    "Flannel": 0.1,
-    "Fishnets": 0.1,
-    "Claret + Blue segments": 0.1,
-    "Camo": 0.1,
-    "Black vest": 0.1,
-    "Black tshirt": 0.1,
-    "Black strap vest": 0.1,
-    "Black segments": 0.1,
-    "Black heart cutout": 0.1,
-    "Black dungarees": 0.1,
-    "Black crossover harness": 0.1,
-    "Black corset": 0.1,
-    "Black bustier": 0.1,
-    "Black braces": 0.1,
-    "Black bandeau": 0.1,
-    "Alice dress": 0.1,
-    "Six Six Six": 0.1
+  "Earring Upper": {
+    "Earring": 0.05,
+    "Stud": 0.05
+  },
+  "Earring Lower": {
+    "White plug": 0.1,
+    "Tunnel": 0.1,
+    "Star plug": 0.1,
+    "Pink plug": 0.1,
+    "Gold heart plug": 0.001,
+    "Earring": 0.1,
+    "Stud": 0.1,
+    "Black Plug": 0.1
+  },
+  "Orbital Piercing": {
+    "Orbital": 0.05
+  },
+  "Industrial Piercing": {
+    "Industrial": 0.05
+  },
+  "Helix Piercing": {
+    "Helix": 0.05
+  },
+  "Tragus Piercing": {
+    "Tragus": 0.05
+  },
+  "Snug Piercing": {
+    "Snug": 0.05
   },
   "Neck Accessory": {
     "Yellow Spotty Choker": 0.1,
@@ -230,7 +223,6 @@ module.exports.traits = {
     "String bow": 0.1,
     "Solana chain": 0.1,
     "Skull necklace": 0.1,
-    "Silver vampire necklace": 0.1,
     "Sailor Moon Choker": 0.1,
     "Ruby crystal necklace": 0.1,
     "Ruby choker": 0.1,
@@ -299,27 +291,54 @@ module.exports.traits = {
     "Amber crystal necklace": 0.1,
     "13 necklace": 0.1
   },
-  "Chest Tattoo": {
-    "Web Diamond": 0.05,
-    "Umbrella Rose": 0.05,
-    "Tiger": 0.05,
-    "Stars": 0.05,
-    "Spiderweb": 0.05,
-    "Spider": 0.05,
-    "Ouija": 0.05,
-    "Medusa": 0.05,
-    "Illuminati": 0.05,
-    "Hourglass": 0.05,
-    "Flowers": 0.05,
-    "Eye": 0.05,
-    "Eagle": 0.05,
-    "Dragon": 0.05,
-    "Devil": 0.05,
-    "Demon": 0.05,
-    "Coffin skull": 0.05,
-    "Hand": 0.05,
-    "Butterfly": 0.05,
-    "Anchor": 0.05,
+  "Clothes": {
+    "Yellow tshirt": 0.1,
+    "White vest": 0.1,
+    "White tshirt": 0.1,
+    "White stripes": 0.1,
+    "White polo": 0.1,
+    "Track jacket": 0.1,
+    "Shirt collar": 0.1,
+    "Sailor shirt": 0.1,
+    "Red stripes": 0.1,
+    "Red bustier": 0.1,
+    "Red + black segments": 0.1,
+    "Purple stripes": 0.1,
+    "Purple + Cream Segments": 0.1,
+    "Pink vest": 0.1,
+    "Pink tshirt": 0.1,
+    "Pink sprinkles": 0.1,
+    "Pink segments": 0.1,
+    "Pink polo": 0.1,
+    "Pink hoodie": 0.1,
+    "Pink heart cutout": 0.1,
+    "Pink braces": 0.1,
+    "Pilgrim dress": 0.1,
+    "Overalls": 0.1,
+    "Lilac vest": 0.1,
+    "Leopard spots": 0.1,
+    "Houndstooth": 0.1,
+    "Hoodie": 0.1,
+    "Heart shirt": 0.1,
+    "Grey tshirt": 0.1,
+    "Grey polo": 0.1,
+    "Flannel": 0.1,
+    "Fishnets": 0.1,
+    "Claret + Blue segments": 0.1,
+    "Camo": 0.1,
+    "Black vest": 0.1,
+    "Black tshirt": 0.1,
+    "Black strap vest": 0.1,
+    "Black segments": 0.1,
+    "Black heart cutout": 0.1,
+    "Black dungarees": 0.1,
+    "Black crossover harness": 0.1,
+    "Black corset": 0.1,
+    "Black bustier": 0.1,
+    "Black braces": 0.1,
+    "Black bandeau": 0.1,
+    "Alice dress": 0.1,
+    "Six Six Six": 0.1
   },
   "Chest Accessory": {
     "Cleavage": 0.1,
@@ -329,6 +348,7 @@ module.exports.traits = {
     "Pentagram harness": 0.05,
     "Black straps": 0.1
   },
+
   "Eye Accessory": {
     "Moon Tiara": 0.01,
     "VR": 0.01,
@@ -336,35 +356,7 @@ module.exports.traits = {
     "Hero mask": 0.05,
     "Black eye patch": 0.1
   },
-  "Earring Upper": {
-    "Earring": 0.05,
-    "Stud": 0.05
-  },
-  "Earring Lower": {
-    "White plug": 0.1,
-    "Tunnel": 0.1,
-    "Star plug": 0.1,
-    "Pink plug": 0.1,
-    "Gold heart plug": 0.001,
-    "Earring": 0.1,
-    "Stud": 0.1,
-    "Black Plug": 0.1
-  },
-  "Orbital Piercing": {
-    "Orbital": 0.05
-  },
-  "Industrial Piercing": {
-    "Industrial": 0.05
-  },
-  "Helix Piercing": {
-    "Helix": 0.05
-  },
-  "Tragus Piercing": {
-    "Tragus": 0.05
-  },
-  "Snug Piercing": {
-    "Snug": 0.05
-  },
+  
   "Eyelashes & Liner": {
     "Wings x3": 0.1,
     "Wings x2": 0.1,
@@ -423,30 +415,18 @@ module.exports.traits = {
     "mouse whiskers": 0.01,
     "beige plaster": 0.01
   },
-  "Mouth Accessory": {
-    "X mask": 0.05,
-    "white mask": 0.05,
-    "Pink vape": 0.05,
-    "Pink mask": 0.05,
-    "Pentagram mask": 0.05,
-    "Lilac vape": 0.05,
-    "Cross mask": 0.05,
-    "Black vape": 0.05,
-    "Black mask": 0.05,
-    "Tongue out": 0.05,
-    "Demon teeth": 0.01
-  },
+
   "Eyes Base": {
     "Regular": 1
   },
   "Eyes": {
     "Starstruck": 0.01,
-    "Starry eyes": 0.001,
-    "Sith eyes": 0.01,
-    "Rolling eyes": 0.05,
-    "Heart eyes": 0.01,
-    "Cross eyes": 0.05,
-    "Black eyes": 0.01
+    "Starry": 0.001,
+    "Sith": 0.01,
+    "Rolling": 0.05,
+    "Heart": 0.01,
+    "Cross": 0.05,
+    "Black": 0.01
   },
   "Under Eye Makeup": {
     "Red tears": 0.01,
@@ -593,7 +573,7 @@ module.exports.traits = {
     "Succulent": 0.05,
     "Snake": 0.05,
     "Skull": 0.05,
-    "Repile": 0.05,
+    "Reptile": 0.05,
     "Peach": 0.05,
     "Monkey": 0.05,
     "Medusa": 0.05,
@@ -608,21 +588,28 @@ module.exports.traits = {
     "Cactus": 0.05,
     "Bat": 0.05,
     "Anchor": 0.05,
+  },
+  "Chest Tattoo": {
     "Web Diamond": 0.05,
+    "Umbrella Rose": 0.05,
     "Tiger": 0.05,
     "Stars": 0.05,
     "Spiderweb": 0.05,
     "Spider": 0.05,
     "Ouija": 0.05,
+    "Medusa": 0.05,
     "Illuminati": 0.05,
     "Hourglass": 0.05,
+    "Flowers": 0.05,
     "Eye": 0.05,
     "Eagle": 0.05,
     "Dragon": 0.05,
+    "Devil": 0.05,
     "Demon": 0.05,
     "Coffin skull": 0.05,
     "Hand": 0.05,
-    "Butterfly": 0.05
+    "Butterfly": 0.05,
+    "Anchor": 0.05,
   },
   "Base": {
     "Base": 1
