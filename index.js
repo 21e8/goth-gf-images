@@ -97,7 +97,7 @@ const HAIR_AND_HAT = require('fs').readdirSync('/Users/madbook/git/gothgf/data/H
 const BLACKLIST = {
   HAIR_AND_HAT: HAIR_AND_HAT
 }
-const errors = [];
+const errors = new Set();
 
 const gen = async (i) => {
   // console.log(i);
@@ -188,23 +188,32 @@ const gen = async (i) => {
     })
     .filter((t) => !!t);
 
-  return await mergeImages(images, {
-    Canvas: Canvas,
+  images.forEach(img => {
+    try {
+      fs.statSync(img)
+    } catch (e) {
+      errors.add(img.split('data/')[1]);
+    }
   })
-    .catch((e) => {
-      console.log(e, images);
-      errors.push({
-        error: e,
-        images,
-      });
-    })
-    .then((b64) => ImageDataURI.outputFile(b64, `out/${i}.png`))
-    .then(() => {
-      return require("fs/promises").writeFile(
-        `out/${i}.json`,
-        jsonFormat(b, { size: 2, type: "space" })
-      );
-    });
+
+
+  // return await mergeImages(images, {
+  //   Canvas: Canvas,
+  // })
+  //   .catch((e) => {
+  //     console.log(e, images);
+  //     errors.push({
+  //       error: e,
+  //       images,
+  //     });
+  //   })
+  //   .then((b64) => ImageDataURI.outputFile(b64, `out/${i}.png`))
+  //   .then(() => {
+  //     return require("fs/promises").writeFile(
+  //       `out/${i}.json`,
+  //       jsonFormat(b, { size: 2, type: "space" })
+  //     );
+  //   });
 };
 
 from(
@@ -214,5 +223,7 @@ from(
 )
   .pipe(mergeMap((i) => gen(i), 1))
   .subscribe(() => {
-    require("fs").writeFileSync("errors.json", JSON.stringify(errors));
+    // require("fs").writeFileSync("errors.json", JSON.stringify(errors));
+    fs.writeFileSync('errors.json', JSON.stringify(Array.from(errors)))
+
   });
