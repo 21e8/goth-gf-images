@@ -1,24 +1,29 @@
-import { traits } from './traits.js';
-import * as fs from 'fs';
+const { traits } = require("./traits.js");
+const fs = require("fs");
+const { roof } = require("./roof.js");
 
 
 
+const calc = Object.keys(traits).reduce((acc, curr) => {
+  if (!acc[curr]) {
+    acc[curr] = 0;
+  }
+  Object.keys(traits[curr]).forEach((tt) => {
+    acc[curr] += traits[curr][tt];
+  });
+  return acc;
+}, {});
 
-const calc = Object.keys(traits).reduce(
-  (acc, curr) => {
-    if (!acc[curr]) {
-      acc[curr] = 0
-    }
-    Object.keys(traits[curr]).forEach(tt => {
-      acc[curr] += traits[curr][tt]
-    })
-    return acc;
-  },
-  {}
-);
+Object.keys(calc).forEach((key) => {
+  if (calc[key] > 1 || roof[key]) {
+    Object.keys(traits[key]).forEach((tt) => {
+      console.log(roof[key]);
 
-Object.keys(calc).forEach(key => {
-  calc[key] = calc[key] / 23.671999999999958
-})
+      traits[key][tt] = roof[key]
+        ? (traits[key][tt] / calc[key]) * roof[key]
+        : traits[key][tt] / calc[key];
+    });
+  }
+});
 
-fs.writeFileSync('out.json', JSON.stringify(calc));
+fs.writeFileSync("fixed_.json", JSON.stringify(traits));

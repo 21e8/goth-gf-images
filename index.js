@@ -1,11 +1,27 @@
 const mergeImages = require("merge-images-v2");
 const Canvas = require("canvas");
 const ImageDataURI = require("image-data-uri");
-const { traits } = require("./traits");
+const { traits } = require("./fixed");
 const jsonFormat = require("json-format");
 const { from, mergeMap } = require("rxjs");
-const fs = require('fs');
+const fs = require("fs");
 
+const capitalize = (s) => {
+  if (typeof s !== "string") return "";
+  return s.charAt(0).toUpperCase() + s.slice(1);
+};
+
+var swapArrayElements = function (arr, indexA, indexB) {
+  var temp = arr[indexA];
+  arr[indexA] = arr[indexB];
+  arr[indexB] = temp;
+};
+
+const capitalizeWords = (w) =>
+  w
+    .split(" ")
+    .map((w) => capitalize(w))
+    .join(" ");
 
 /**
  * Needed for calculating traits
@@ -30,8 +46,6 @@ const mappedtraits = Object.entries(traits).reduce(
   },
   {}
 );
-
-const SET_SIZE = 1_000_000;
 
 /**
  * Metadata template
@@ -71,11 +85,12 @@ const getTraits = () => {
       const found = mappedtraits[key].find((trait) =>
         findByChance({ number, trait })
       );
+
       return found
         ? {
-          trait_type: key,
-          value: found[0],
-        }
+            trait_type: key,
+            value: capitalizeWords(found[0]),
+          }
         : null;
     })
     .filter((t) => !!t);
@@ -87,25 +102,59 @@ const getTraits = () => {
   return traits;
 };
 
-const capitalize = (s) => {
-  if (typeof s !== "string") return "";
-  return s.charAt(0).toUpperCase() + s.slice(1);
-};
+const HAIR_AND_HAT = require("fs")
+  .readdirSync("/Users/madbook/git/gothgf/data/Hair + Hat")
+  .map((f) => f.split(".png")[0]);
+const CLOTHES_AND_NECK = require("fs")
+  .readdirSync("/Users/madbook/git/gothgf/data/Clothes + Neck")
+  .map((f) => f.split(".png")[0]);
+const HAIR_BEHIND = fs
+  .readdirSync("/Users/madbook/git/gothgf/data/Hair Behind")
+  .map((f) => f.split(".png")[0]);
 
-const HAIR_AND_HAT = require('fs').readdirSync('/Users/madbook/git/gothgf/data/Hair + Hat').map(f => f.split('.png')[0]);
-
-const BLACKLIST = {
-  HAIR_AND_HAT: HAIR_AND_HAT
-}
 const errors = new Set();
 
 const gen = async (i) => {
+  console.log(i)
   const b = makeJson({ i, traits: getTraits() });
 
-  const capitalizeWords = w => w
-    .split(" ")
-    .map((w) => capitalize(w))
-    .join(" ")
+  const hasHairAndHat = b.attributes.find(
+    (t) => HAIR_AND_HAT.indexOf(t.value) > -1
+  );
+  if (hasHairAndHat) {
+    console.log(`Should remove Head Accessory in ${i}`);
+    b.attributes = b.attributes.filter(
+      (t) => t.trait_type !== "Head Accessory"
+    );
+  }
+  const hasClothesAndNeck = b.attributes.find(
+    (t) => CLOTHES_AND_NECK.indexOf(t.value) > -1
+  );
+
+  if (hasClothesAndNeck) {
+    console.log(`Should remove Neck Accessory in ${i}`);
+    b.attributes = b.attributes.filter(
+      (t) => t.trait_type !== "Neck Accessory"
+    );
+  }
+
+  const hair = b.attributes.findIndex(a => a.trait_type === 'Hair');
+  if (hair > -1) {
+    const isBehind = HAIR_BEHIND.indexOf(b.attributes[hair].value) > -1;
+    const earringUpper = b.attributes.findIndex(a => a.trait_type === 'Earring Upper');
+    const earringLower = b.attributes.findIndex(a => a.trait_type === 'Earring Lower');
+    if (isBehind) {
+      if (earringLower > -1 && earringUpper > -1) {
+        swapArrayElements(b.attributes, hair, earringUpper)
+        swapArrayElements(b.attributes, earringUpper, earringLower)
+      } else if (earringLower > -1) {
+        swapArrayElements(b.attributes, hair, earringLower)
+
+      } else if (earringUpper > -1) {
+        swapArrayElements(b.attributes, hair, earringUpper)
+      }
+    }
+  }
 
   const images = b.attributes
     .map((t) => {
@@ -115,29 +164,27 @@ const gen = async (i) => {
 
       return `${__dirname}/data/${t.trait_type}/${capitalizeWords(
         b.attributes.find(
-          (c) =>
-            capitalizeWords(c.trait_type) === capitalizeWords(t.trait_type)
-        ).value)
-        }.png`;
+          (c) => capitalizeWords(c.trait_type) === capitalizeWords(t.trait_type)
+        ).value
+      )}.png`;
     })
     .filter((t) => !!t)
     .reverse();
 
-  images.forEach(img => {
+  images.forEach((img) => {
     try {
-      fs.statSync(img)
+      fs.statSync(img);
     } catch (e) {
-      errors.add(img.split('data/')[1]);
+      errors.add(img);
     }
-  })
-
+  });
 
   return await mergeImages(images, {
     Canvas: Canvas,
   })
     .catch((e) => {
       console.log(e, images);
-      fs.writeFileSync('errors.json', JSON.stringify(Array.from(errors)))
+      fs.writeFileSync("errors.json", JSON.stringify(Array.from(errors)));
     })
     .then((b64) => ImageDataURI.outputFile(b64, `out/${i}.png`))
     .then(() => {
@@ -149,11 +196,11 @@ const gen = async (i) => {
 };
 
 from(
-  Array(SET_SIZE)
+  Array(10000)
     .fill("")
     .map((_, i) => i)
 )
   .pipe(mergeMap((i) => gen(i), 1))
   .subscribe(() => {
-    fs.writeFileSync('errors.json', JSON.stringify(Array.from(errors)))
+    fs.writeFileSync("errors.json", JSON.stringify(Array.from(errors)));
   });
