@@ -312,8 +312,8 @@ module.exports.traits = {
     "Black eye patch": 0.02777777777777778,
   },
   "Eyelashes & Liner": {
-    "Wings X3": 0.1,
-    "Wings X2": 0.1,
+    "Wings x3": 0.1,
+    "Wings x2": 0.1,
     "Thick top": 0.1,
     "Thick full": 0.1,
     "Small wings": 0.1,
