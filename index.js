@@ -103,13 +103,13 @@ const getTraits = () => {
 };
 
 const HAIR_AND_HAT = require("fs")
-  .readdirSync("/Users/madbook/git/gothgf/data/Hair + Hat")
+  .readdirSync("data/Hair + Hat")
   .map((f) => f.split(".png")[0]);
 const CLOTHES_AND_NECK = require("fs")
-  .readdirSync("/Users/madbook/git/gothgf/data/Clothes + Neck")
+  .readdirSync("data/Clothes + Neck")
   .map((f) => f.split(".png")[0]);
 const HAIR_BEHIND = fs
-  .readdirSync("/Users/madbook/git/gothgf/data/Hair Behind")
+  .readdirSync("data/Hair Behind")
   .map((f) => f.split(".png")[0]);
 
 const errors = new Set();
