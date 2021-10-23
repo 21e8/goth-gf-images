@@ -36,14 +36,11 @@ module.exports.traits = {
   },
   "Mouth Accessory": {
     "X mask": 0.009803921568627454,
-    "white mask": 0.009803921568627454,
     "Pink vape": 0.009803921568627454,
-    "Pink mask": 0.009803921568627454,
     "Pentagram mask": 0.009803921568627454,
     "Lilac vape": 0.009803921568627454,
     "Cross mask": 0.009803921568627454,
     "Black vape": 0.009803921568627454,
-    "Black mask": 0.009803921568627454,
     "Tongue out": 0.009803921568627454,
     "Demon teeth": 0.0019607843137254906
   },
@@ -399,7 +396,6 @@ module.exports.traits = {
     "White paint": 0.009090909090909092,
     "War paint": 0.009090909090909092,
     "Stars": 0.009090909090909092,
-    "Naruto": 0.009090909090909092,
     "Lines tattoo": 0.009090909090909092,
     "Glasgow smile": 0.009090909090909092,
     "Cartoon lashes": 0.009090909090909092,

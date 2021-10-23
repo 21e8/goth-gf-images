@@ -36,14 +36,11 @@ module.exports.traits = {
   },
   "Mouth Accessory": {
     "X mask": 0.05,
-    "white mask": 0.05,
     "Pink vape": 0.05,
-    "Pink mask": 0.05,
     "Pentagram mask": 0.05,
     "Lilac vape": 0.05,
     "Cross mask": 0.05,
     "Black vape": 0.05,
-    "Black mask": 0.05,
     "Tongue out": 0.05,
     "Demon teeth": 0.01
   },
@@ -386,10 +383,6 @@ module.exports.traits = {
     "mouse whiskers": 0.01,
     "beige plaster": 0.01
   },
-
-  "Eyes Base": {
-    "Regular": 1
-  },
   "Eyes": {
     "Starstruck": 0.01,
     "Starry": 0.001,
@@ -398,6 +391,9 @@ module.exports.traits = {
     "Heart": 0.01,
     "Cross": 0.05,
     "Black": 0.01
+  },
+  "Eyes Base": {
+    "Regular": 1
   },
   "Under Eye Makeup": {
     "Red tears": 0.01,
@@ -416,7 +412,6 @@ module.exports.traits = {
     "White paint": 0.01,
     "War paint": 0.01,
     "Stars": 0.01,
-    "Naruto": 0.01,
     "Lines tattoo": 0.01,
     "Glasgow smile": 0.01,
     "Cartoon lashes": 0.01,
