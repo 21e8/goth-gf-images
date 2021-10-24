@@ -5,7 +5,7 @@ const { traits } = require("./fixed");
 const jsonFormat = require("json-format");
 const { from, mergeMap } = require("rxjs");
 const fs = require("fs");
-const {order} = require('./order');
+const { order } = require("./order");
 
 const capitalize = (s) => {
   if (typeof s !== "string") return "";
@@ -89,7 +89,7 @@ const getTraits = () => {
         const found = mappedtraits[key].find((trait) =>
           findByChance({ number, trait })
         );
-  
+
         return found
           ? {
               trait_type: key,
@@ -97,7 +97,7 @@ const getTraits = () => {
             }
           : null;
       } catch {
-        console.log(key + ' not found')
+        console.log(key + " not found");
       }
     })
     .filter((t) => !!t);
@@ -124,9 +124,6 @@ const errors = new Set();
 const gen = async (i) => {
   console.log(i);
   const b = makeJson({ i, traits: getTraits() });
-
-
-
 
   const hasHairAndHat = b.attributes.find(
     (t) => HAIR_AND_HAT.indexOf(t.value) > -1
@@ -161,15 +158,15 @@ const gen = async (i) => {
       "Snug Piercing",
     ];
     const indicesOfEarrrings = b.attributes
-      .map((t) => {
-        const index = earrings.indexOf(t.trait_type);
-        return index > -1 ? { index: index, ...t } : null;
+      .map((t, index) => {
+        return earrings.indexOf(t.trait_type) > -1
+          ? { index: index, ...t }
+          : null;
       })
       .filter((r) => r !== null);
 
     const highest = indicesOfEarrrings[indicesOfEarrrings.length - 1];
 
-    
     if (isBehind && highest) {
       swapArrayElements(b.attributes, highest.index, hair);
     }
