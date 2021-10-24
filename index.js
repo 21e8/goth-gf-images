@@ -52,17 +52,19 @@ const mappedtraits = Object.entries(traits).reduce(
 const makeJson = ({ i, traits }) => {
   return {
     name: `Goth GF #${i + 1}`,
-    symbol: "",
+    symbol: "GOTHGF",
     description: "",
     image: `${i}.png`,
-    external_url: "",
+    external_url: "https://gothgfs.com/",
     attributes: traits,
     seller_fee_basis_points: 500,
-    update_authority: "",
+    update_authority: "GoThgFHS5W9jCLX7JoWnCHtL5RMJEBWL3HVuhGjVntyg",
     properties: {
       files: [{ type: "image/png", src: `${i}.png` }],
       category: "image",
-      creators: null,
+      creators: [
+        { address: 'GoThgFHS5W9jCLX7JoWnCHtL5RMJEBWL3HVuhGjVntyg', share: 100 }
+      ],
     },
   };
 };

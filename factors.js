@@ -41,7 +41,6 @@ module.exports.factors = {
     "Head Side Tattoo": 0.012673200405542435,
     "Shoulder Tattoo": 0.07181480229807384,
     "Base": 0.04224400135180812,
-    "Behind Eye Makeup": 0.006336600202771219,
     "Skin Tone": 0.12808381209868222,
     "Background": 0.0760814464346064
   }

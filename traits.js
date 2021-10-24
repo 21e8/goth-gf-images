@@ -581,10 +581,6 @@ module.exports.traits = {
   "Base": {
     "Base": 1
   },
-  "Behind Eye Makeup": {
-    "White band": 0.05,
-    "Red band": 0.05,
-  },
   "Skin Tone": {
     "Zombie green": 0.05,
     "Zombie decomposed": 0.05,
