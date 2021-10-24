@@ -66,6 +66,8 @@ module.exports.traits = {
     "Purple pointed fringe": 0.010654165778819537,
     "Purple half shaved": 0.010654165778819537,
     "Pointed fringe": 0.010654165778819537,
+    "Blonde + Black Split Fringe": 0.010654165778819537,
+    "Red + Black Split Fringe": 0.010654165778819537,
     "Pink short": 0.010654165778819537,
     "Pink short fringe long": 0.010654165778819537,
     "Pink pony": 0.010654165778819537,
@@ -155,7 +157,10 @@ module.exports.traits = {
     Billie: 0.0005327082889409767,
     "Zero Two": 0.00005327082889409768,
   },
-  "Earring Upper": { Earring: 0.05, Stud: 0.05 },
+  "Earring Upper": {
+    Earring: 0.05,
+    Stud: 0.05,
+  },
   "Earring Lower": {
     "White plug": 0.1,
     Tunnel: 0.1,
@@ -166,11 +171,21 @@ module.exports.traits = {
     Stud: 0.1,
     "Black Plug": 0.1,
   },
-  "Orbital Piercing": { Orbital: 0.1 },
-  "Industrial Piercing": { Industrial: 0.1 },
-  "Helix Piercing": { Helix: 0.1 },
-  "Tragus Piercing": { Tragus: 1 },
-  "Snug Piercing": { Snug: 0.1 },
+  "Orbital Piercing": {
+    Orbital: 0.1,
+  },
+  "Industrial Piercing": {
+    Industrial: 0.1,
+  },
+  "Helix Piercing": {
+    Helix: 0.1,
+  },
+  "Tragus Piercing": {
+    Tragus: 1,
+  },
+  "Snug Piercing": {
+    Snug: 0.1,
+  },
   "Neck Accessory": {
     "Yellow Spotty Choker": 0.002773540424351689,
     "XXX Necklace": 0.002773540424351689,
@@ -310,6 +325,18 @@ module.exports.traits = {
     "Hero mask": 0.01388888888888889,
     "Black eye patch": 0.02777777777777778,
   },
+  "Eyelashes & Liner": {
+    "Wings x3": 0.1,
+    "Wings x2": 0.1,
+    "Thick top": 0.1,
+    "Thick full": 0.1,
+    "Small wings": 0.1,
+    "Large wings": 0.1,
+    Full: 0.1,
+    "Full lashes + wings": 0.1,
+    "Full half": 0.1,
+    Bottom: 0.1,
+  },
   "Eye Shadow": {
     Red: 0.05331556147950683,
     Pink: 0.05331556147950683,
@@ -365,18 +392,8 @@ module.exports.traits = {
     Cross: 0.035460992907801414,
     Black: 0.0070921985815602835,
   },
-  "Eyes Base": { Regular: 1 },
-  "Eyelashes & Liner": {
-    "Wings x3": 0.1,
-    "Wings x2": 0.1,
-    "Thick top": 0.1,
-    "Thick full": 0.1,
-    "Small wings": 0.1,
-    "Large wings": 0.1,
-    Full: 0.1,
-    "Full lashes + wings": 0.1,
-    "Full half": 0.1,
-    Bottom: 0.1,
+  "Eyes Base": {
+    Regular: 1,
   },
   "Under Eye Makeup": {
     "Red tears": 0.004329004329004328,
@@ -432,15 +449,38 @@ module.exports.traits = {
     ACAB: 0.010869565217391302,
     Thirteen: 0.010869565217391302,
   },
-  "Nose Piercing Right": { "Nose Ring Right": 0.1 },
-  "Nose Piercing Left": { "Nose Stud Left": 0.05, "Nose Ring Left": 0.05 },
-  "Septum Piercing": { "septum ring": 0.05, "septum bullring": 0.05 },
-  "Monroe Piercing": { Monroe: 0.2 },
-  "Medusa Piercing": { Medusa: 0.1 },
-  "Madonna Piercing": { Madonna: 0.2 },
-  "Labret Right": { Ring: 0.1, Stud: 0.1 },
-  "Labret Left": { Ring: 0.1, Stud: 0.1 },
-  "Labret Centre": { Ring: 0.1, Stud: 0.1 },
+  "Nose Piercing Right": {
+    "Nose Ring Right": 0.1,
+  },
+  "Nose Piercing Left": {
+    "Nose Stud Left": 0.05,
+    "Nose Ring Left": 0.05,
+  },
+  "Septum Piercing": {
+    "septum ring": 0.05,
+    "septum bullring": 0.05,
+  },
+  "Monroe Piercing": {
+    Monroe: 0.2,
+  },
+  "Medusa Piercing": {
+    Medusa: 0.1,
+  },
+  "Madonna Piercing": {
+    Madonna: 0.2,
+  },
+  "Labret Right": {
+    Ring: 0.1,
+    Stud: 0.1,
+  },
+  "Labret Left": {
+    Ring: 0.1,
+    Stud: 0.1,
+  },
+  "Labret Centre": {
+    Ring: 0.1,
+    Stud: 0.1,
+  },
   Lipstick: {
     Violet: 0.05762028233938346,
     "Vampire teeth": 0.002881014116969173,
@@ -464,7 +504,9 @@ module.exports.traits = {
     Beige: 0.05762028233938346,
     Amidala: 0.002881014116969173,
   },
-  "Bridge Piercing": { Bridge: 0.3 },
+  "Bridge Piercing": {
+    Bridge: 0.3,
+  },
   "Beauty Mark": {
     "Beauty Mark 1": 0.01666666666666667,
     "Beauty Mark 2": 0.01666666666666667,
@@ -534,7 +576,9 @@ module.exports.traits = {
     Butterfly: 0.009999999999999998,
     Anchor: 0.009999999999999998,
   },
-  Base: { Base: 1 },
+  Base: {
+    Base: 1,
+  },
   "Skin Tone": {
     "Zombie green": 0.016490765171503958,
     "Zombie decomposed": 0.016490765171503958,
