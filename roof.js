@@ -37,5 +37,4 @@ module.exports.roof = {
   "Head Side Tattoo": 0.2,
   "Shoulder Tattoo": 0.3,
   "Chest Tattoo": 0.2,
-  "Behind Eye Makeup": 0.1,
 };
