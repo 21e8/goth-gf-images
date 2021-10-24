@@ -71,6 +71,8 @@ module.exports.traits = {
     "Pink pony": 0.2,
     "Pink pixie": 0.2,
     "Pink fringe": 0.2,
+    "Red + Black Split Fringe": 0.2,
+    "Blonde + Black Split Fringe": 0.2,
     "Pink curly": 0.2,
     "Peach fringe": 0.2,
     "Peach anime": 0.2,
@@ -408,7 +410,7 @@ module.exports.traits = {
     "Blush 2": 0.1,
     "Blush 3": 0.1,
     "Blush 4": 0.1,
-    "Blush 5": 0.1 
+    "Blush 5": 0.1
   },
   "Eyes Base": {
     "Regular": 1

@@ -10,7 +10,7 @@ module.exports.roof = {
   "Tragus Piercing": 1,
   "Snug Piercing": 0.1,
   "Neck Accessory": 0.2,
-  Clothes: 0.25,
+  Clothes: 0.60,
   "Chest Accessory": 0.1,
   "Eye Accessory": 0.05,
   Eyes: 0.1,
