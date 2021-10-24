@@ -153,13 +153,14 @@ const gen = async (i) => {
     ];
     const indicesOfEarrrings = b.attributes
       .map((t) => {
-        const index = earrings.indexOf(t.value);
+        const index = earrings.indexOf(t.trait_type);
         return index > -1 ? { index: index, ...t } : null;
       })
       .filter((r) => r !== null);
 
     const highest = indicesOfEarrrings[indicesOfEarrrings.length - 1];
 
+    
     if (isBehind && highest) {
       swapArrayElements(b.attributes, highest.index, hair);
     }
