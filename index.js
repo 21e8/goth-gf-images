@@ -145,24 +145,23 @@ const gen = async (i) => {
     const earrings = [
       "Earring upper",
       "Earring Lower",
-      "Orbital",
-      "Industrial",
-      "Helix",
-      "Tragus",
-      "Snug",
+      "Orbital Piercing",
+      "Industrial Piercing",
+      "Helix Piercing",
+      "Tragus Piercing",
+      "Snug Piercing",
     ];
-    const indicesOfEarrrings = b.attributes.map((t) => {
-      const index = earrings.indexOf(t.value);
-      return index > -1 ? {index: index, ...t } : null;
-    }).filter(r => r !== null);
+    const indicesOfEarrrings = b.attributes
+      .map((t) => {
+        const index = earrings.indexOf(t.value);
+        return index > -1 ? { index: index, ...t } : null;
+      })
+      .filter((r) => r !== null);
 
-    if (!indicesOfEarrrings.length) {
-      return
-    }
-    const highestIndex = indicesOfEarrrings[indicesOfEarrrings.length  -1].index;
+    const highest = indicesOfEarrrings[indicesOfEarrrings.length - 1];
 
-    if (isBehind) {
-      swapArrayElements(b.attributes, highestIndex, hair)
+    if (isBehind && highest) {
+      swapArrayElements(b.attributes, highest.index, hair);
     }
   }
 
@@ -188,6 +187,7 @@ const gen = async (i) => {
     }
   });
 
+  console.log(images);
   return await mergeImages(images, {
     Canvas: Canvas,
   })
