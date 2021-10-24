@@ -214,7 +214,7 @@ const gen = async (i) => {
 from(
   Array(5000)
     .fill("")
-    .map((_, i) => i)
+    .map((_, i) => i + 5000)
 )
   .pipe(mergeMap((i) => gen(i), 1))
   .subscribe(() => {
