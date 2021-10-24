@@ -159,10 +159,6 @@ const gen = async (i) => {
       "Helix Piercing",
       "Tragus Piercing",
       "Snug Piercing",
-      "Neck Accessory",
-      "Clothes",
-      "Chest Accessory",
-      "Eye Accessory",
     ];
     const indicesOfEarrrings = b.attributes
       .map((t) => {
