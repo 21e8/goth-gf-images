@@ -1,8 +1,8 @@
 module.exports.order = [
   "Head Accessory",
   "Glasses",
-  "Hair",
   "Mouth Accessory",
+  "Hair",
   "Earring Upper",
   "Earring Lower",
   "Orbital Piercing",
