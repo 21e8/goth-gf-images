@@ -63,7 +63,7 @@ const makeJson = ({ i, traits }) => {
       files: [{ type: "image/png", src: `${i}.png` }],
       category: "image",
       creators: [
-        { address: 'GoThgFHS5W9jCLX7JoWnCHtL5RMJEBWL3HVuhGjVntyg', share: 100 }
+        { address: "GoThgFHS5W9jCLX7JoWnCHtL5RMJEBWL3HVuhGjVntyg", share: 100 },
       ],
     },
   };
@@ -116,10 +116,8 @@ const HAIR_BEHIND = fs
 const errors = new Set();
 
 const gen = async (i) => {
-  console.log(i)
+  console.log(i);
   const b = makeJson({ i, traits: getTraits() });
-
-  console.log(jsonFormat(b.attributes))
 
   const hasHairAndHat = b.attributes.find(
     (t) => HAIR_AND_HAT.indexOf(t.value) > -1
@@ -141,21 +139,30 @@ const gen = async (i) => {
     );
   }
 
-  const hair = b.attributes.findIndex(a => a.trait_type === 'Hair');
+  const hair = b.attributes.findIndex((a) => a.trait_type === "Hair");
   if (hair > -1) {
     const isBehind = HAIR_BEHIND.indexOf(b.attributes[hair].value) > -1;
-    const earringUpper = b.attributes.findIndex(a => a.trait_type === 'Earring Upper');
-    const earringLower = b.attributes.findIndex(a => a.trait_type === 'Earring Lower');
-    if (isBehind) {
-      if (earringLower > -1 && earringUpper > -1) {
-        swapArrayElements(b.attributes, hair, earringUpper)
-        swapArrayElements(b.attributes, earringUpper, earringLower)
-      } else if (earringLower > -1) {
-        swapArrayElements(b.attributes, hair, earringLower)
+    const earrings = [
+      "Earring upper",
+      "Earring Lower",
+      "Orbital",
+      "Industrial",
+      "Helix",
+      "Tragus",
+      "Snug",
+    ];
+    const indicesOfEarrrings = b.attributes.map((t) => {
+      const index = earrings.indexOf(t.value);
+      return index > -1 ? {index: index, ...t } : null;
+    }).filter(r => r !== null);
 
-      } else if (earringUpper > -1) {
-        swapArrayElements(b.attributes, hair, earringUpper)
-      }
+    if (!indicesOfEarrrings.length) {
+      return
+    }
+    const highestIndex = indicesOfEarrrings[indicesOfEarrrings.length  -1].index;
+
+    if (isBehind) {
+      swapArrayElements(b.attributes, highestIndex, hair)
     }
   }
 
@@ -164,7 +171,6 @@ const gen = async (i) => {
       if (!t.trait_type) {
         return undefined;
       }
-
       return `${__dirname}/data/${t.trait_type}/${capitalizeWords(
         b.attributes.find(
           (c) => capitalizeWords(c.trait_type) === capitalizeWords(t.trait_type)
