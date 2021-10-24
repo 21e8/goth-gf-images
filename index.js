@@ -5,7 +5,6 @@ const { traits } = require("./fixed");
 const jsonFormat = require("json-format");
 const { from, mergeMap } = require("rxjs");
 const fs = require("fs");
-
 const capitalize = (s) => {
   if (typeof s !== "string") return "";
   return s.charAt(0).toUpperCase() + s.slice(1);
@@ -118,6 +117,8 @@ const gen = async (i) => {
   console.log(i)
   const b = makeJson({ i, traits: getTraits() });
 
+  console.log(jsonFormat(b.attributes))
+
   const hasHairAndHat = b.attributes.find(
     (t) => HAIR_AND_HAT.indexOf(t.value) > -1
   );
@@ -196,7 +197,7 @@ const gen = async (i) => {
 };
 
 from(
-  Array(10000)
+  Array(5000)
     .fill("")
     .map((_, i) => i)
 )

@@ -318,12 +318,21 @@ module.exports.traits = {
     "Pentagram harness": 0.05,
     "Black straps": 0.1
   },
+
   "Eye Accessory": {
     "Moon Tiara": 0.01,
-    "VR": 0.01,
     "Nurse eye patch": 0.01,
     "Hero mask": 0.05,
     "Black eye patch": 0.1
+  },
+  "Eyes": {
+    "Starstruck": 0.01,
+    "Starry": 0.001,
+    "Sith": 0.01,
+    "Rolling": 0.05,
+    "Heart": 0.01,
+    "Cross": 0.05,
+    "Black": 0.01
   },
   "Eyelashes & Liner": {
     "Wings x3": 0.1,
@@ -337,6 +346,7 @@ module.exports.traits = {
     "Full half": 0.1,
     "Bottom": 0.1
   },
+  
   "Eye Shadow": {
     "Red": 0.2,
     "Pink": 0.2,
@@ -383,18 +393,6 @@ module.exports.traits = {
     "mouse whiskers": 0.01,
     "beige plaster": 0.01
   },
-  "Eyes": {
-    "Starstruck": 0.01,
-    "Starry": 0.001,
-    "Sith": 0.01,
-    "Rolling": 0.05,
-    "Heart": 0.01,
-    "Cross": 0.05,
-    "Black": 0.01
-  },
-  "Eyes Base": {
-    "Regular": 1
-  },
   "Under Eye Makeup": {
     "Red tears": 0.01,
     "Red smudged": 0.05,
@@ -424,6 +422,10 @@ module.exports.traits = {
     "Blush 4": 0.1,
     "Blush 5": 0.1
   },
+  "Eyes Base": {
+    "Regular": 1
+  },
+
   "Cheekbone": {
     "Three dots": 0.05,
     "Tear drop outline": 0.05,
