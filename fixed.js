@@ -325,14 +325,6 @@ module.exports.traits = {
     "Hero mask": 0.01388888888888889,
     "Black eye patch": 0.02777777777777778,
   },
-  "Nose Accessory": {
-    "witch nose": 0.008333333333333333,
-    "white plaster": 0.008333333333333333,
-    "purple plaster": 0.008333333333333333,
-    "pink plaster": 0.008333333333333333,
-    "mouse whiskers": 0.008333333333333333,
-    "beige plaster": 0.008333333333333333,
-  },
   Eyes: {
     Starstruck: 0.0070921985815602835,
     Starry: 0.0007092198581560284,
@@ -394,6 +386,14 @@ module.exports.traits = {
     blonde: 0.10411244143675168,
     black: 0.10411244143675168,
     angry: 0.02602811035918792,
+  },
+  "Nose Accessory": {
+    "witch nose": 0.008333333333333333,
+    "white plaster": 0.008333333333333333,
+    "purple plaster": 0.008333333333333333,
+    "pink plaster": 0.008333333333333333,
+    "mouse whiskers": 0.008333333333333333,
+    "beige plaster": 0.008333333333333333,
   },
   "Under Eye Makeup": {
     "Red tears": 0.004329004329004328,
