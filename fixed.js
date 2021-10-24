@@ -325,18 +325,7 @@ module.exports.traits = {
     "Hero mask": 0.01388888888888889,
     "Black eye patch": 0.02777777777777778,
   },
-  "Eyelashes & Liner": {
-    "Wings x3": 0.1,
-    "Wings x2": 0.1,
-    "Thick top": 0.1,
-    "Thick full": 0.1,
-    "Small wings": 0.1,
-    "Large wings": 0.1,
-    Full: 0.1,
-    "Full lashes + wings": 0.1,
-    "Full half": 0.1,
-    Bottom: 0.1,
-  },
+
   "Eye Shadow": {
     Red: 0.05331556147950683,
     Pink: 0.05331556147950683,
@@ -394,6 +383,18 @@ module.exports.traits = {
   },
   "Eyes Base": {
     Regular: 1,
+  },
+  "Eyelashes & Liner": {
+    "Wings x3": 0.1,
+    "Wings x2": 0.1,
+    "Thick top": 0.1,
+    "Thick full": 0.1,
+    "Small wings": 0.1,
+    "Large wings": 0.1,
+    Full: 0.1,
+    "Full lashes + wings": 0.1,
+    "Full half": 0.1,
+    Bottom: 0.1,
   },
   "Under Eye Makeup": {
     "Red tears": 0.004329004329004328,

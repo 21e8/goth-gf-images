@@ -334,19 +334,7 @@ module.exports.traits = {
     "Cross": 0.05,
     "Black": 0.01
   },
-  "Eyelashes & Liner": {
-    "Wings x3": 0.1,
-    "Wings x2": 0.1,
-    "Thick top": 0.1,
-    "Thick full": 0.1,
-    "Small wings": 0.1,
-    "Large wings": 0.1,
-    "Full": 0.1,
-    "Full lashes + wings": 0.1,
-    "Full half": 0.1,
-    "Bottom": 0.1
-  },
-  
+
   "Eye Shadow": {
     "Red": 0.2,
     "Pink": 0.2,
@@ -420,12 +408,23 @@ module.exports.traits = {
     "Blush 2": 0.1,
     "Blush 3": 0.1,
     "Blush 4": 0.1,
-    "Blush 5": 0.1
+    "Blush 5": 0.1 
   },
   "Eyes Base": {
     "Regular": 1
   },
-
+  "Eyelashes & Liner": {
+    "Wings x3": 0.1,
+    "Wings x2": 0.1,
+    "Thick top": 0.1,
+    "Thick full": 0.1,
+    "Small wings": 0.1,
+    "Large wings": 0.1,
+    "Full": 0.1,
+    "Full lashes + wings": 0.1,
+    "Full half": 0.1,
+    "Bottom": 0.1
+  },
   "Cheekbone": {
     "Three dots": 0.05,
     "Tear drop outline": 0.05,
