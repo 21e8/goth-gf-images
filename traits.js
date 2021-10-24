@@ -376,7 +376,6 @@ module.exports.traits = {
     "angry": 0.05
   },
   "Nose Accessory": {
-    "witch nose": 0.01,
     "white plaster": 0.01,
     "purple plaster": 0.01,
     "pink plaster": 0.01,
