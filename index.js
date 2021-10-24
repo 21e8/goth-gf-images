@@ -75,24 +75,75 @@ const findByChance = ({ number, trait }) => {
 
 const list = [];
 
+
+const order = [
+  "Head Accessory",
+  "Glasses",
+  "Mouth Accessory",
+  "Hair",
+  "Earring Upper",
+  "Earring Lower",
+  "Orbital Piercing",
+  "Industrial Piercing",
+  "Helix Piercing",
+  "Tragus Piercing",
+  "Snug Piercing",
+  "Neck Accessory",
+  "Clothes",
+  "Chest Accessory",
+  "Eye Accessory",
+  "Eyes",
+  "Eyelashes & Liner",
+  "Eye Shadow",
+  "Eyebrows",
+  "Nose Accessory",
+  "Under Eye Makeup",
+  "Face Paint",
+  "Blush",
+  "Cheekbone",
+  "Nose Piercing Right",
+  "Nose Piercing Left",
+  "Septum Piercing",
+  "Monroe Piercing",
+  "Medusa Piercing",
+  "Madonna Piercing",
+  "Labret Right",
+  "Labret Left",
+  "Labret Centre",
+  "Lipstick",
+  "Bridge Piercing",
+  "Beauty Mark",
+  "Forehead Tattoo",
+  "Scalp Tattoo",
+  "Head Side Tattoo",
+  "Shoulder Tattoo",
+  "Chest Tattoo",
+  "Base",
+  "Skin Tone",
+  "Background",
+];
 /**
  * Generates set of traits.
  * Recursive if it encounters a duplicate
  */
 const getTraits = () => {
-  const traits = Object.keys(mappedtraits)
+  const traits = order
     .map((key) => {
       const number = Math.random();
-      const found = mappedtraits[key].find((trait) =>
-        findByChance({ number, trait })
-      );
-
-      return found
-        ? {
-            trait_type: key,
-            value: capitalizeWords(found[0]),
-          }
-        : null;
+      try {
+        const found = mappedtraits[key].find((trait) =>
+          findByChance({ number, trait })
+        );
+  
+        return found
+          ? {
+              trait_type: key,
+              value: capitalizeWords(found[0]),
+            }
+          : null;
+      } catch {
+        console.log(key + ' not found')
+      }
     })
     .filter((t) => !!t);
 
@@ -119,6 +170,9 @@ const gen = async (i) => {
   console.log(i);
   const b = makeJson({ i, traits: getTraits() });
 
+
+
+
   const hasHairAndHat = b.attributes.find(
     (t) => HAIR_AND_HAT.indexOf(t.value) > -1
   );
@@ -143,7 +197,7 @@ const gen = async (i) => {
   if (hair > -1) {
     const isBehind = HAIR_BEHIND.indexOf(b.attributes[hair].value) > -1;
     const earrings = [
-      "Earring upper",
+      "Earring Upper",
       "Earring Lower",
       "Orbital Piercing",
       "Industrial Piercing",
